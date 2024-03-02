@@ -29,7 +29,7 @@ jobs:
         7z x skia.zip -y -oskia | findstr ing
     - name: Find path
       id: path
-      run: echo "working_path=$(pwd | findstr \)" >> "$GITHUB_OUTPUT"
+      run: echo "working_path=$(pwd | findstr \)" >> "$Env:GITHUB_OUTPUT"
     - name: Setup MSVC Developer Command Prompt
       uses: TheMrMilchmann/setup-msvc-dev@v2.0.0
       with:
