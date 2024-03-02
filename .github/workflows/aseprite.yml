@@ -16,9 +16,9 @@ jobs:
     - uses: seanmiddleditch/gha-setup-ninja@master
     - name: Get Download Links
       run: |
-        echo "action_ase=$(iwr https://api.github.com/repos/aseprite/aseprite/releases/latest | Select -ExpandProperty Content | jq -r '.assets[].browser_download_url')" >> "$GITHUB_OUTPUT"
-        echo "action_skia=$(iwr https://api.github.com/repos/aseprite/skia/releases/latest | Select -ExpandProperty Content | jq -r '.assets[].browser_download_url' | findstr Windows | findstr 64)" >> "$GITHUB_OUTPUT"
-        echo "action_tg=$(iwr https://api.github.com/repos/aseprite/aseprite/releases/latest | Select -ExpandProperty Content | jq -r '.tag_name')" >> "$GITHUB_OUTPUT"
+        echo "action_ase=$(iwr https://api.github.com/repos/aseprite/aseprite/releases/latest | Select -ExpandProperty Content | jq -r '.assets[].browser_download_url')" >> "$Env:GITHUB_OUTPUT"
+        echo "action_skia=$(iwr https://api.github.com/repos/aseprite/skia/releases/latest | Select -ExpandProperty Content | jq -r '.assets[].browser_download_url' | findstr Windows | findstr 64)" >> "$Env:GITHUB_OUTPUT"
+        echo "action_tg=$(iwr https://api.github.com/repos/aseprite/aseprite/releases/latest | Select -ExpandProperty Content | jq -r '.tag_name')" >> "$Env:GITHUB_OUTPUT"
       id: links
     - name: Clone aseprite source
       run: |
